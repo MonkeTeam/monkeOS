@@ -15,6 +15,7 @@ class CLI
 			input: process.stdin
 		})
 
+		this.showWelcomeMessage()
 		this.run()
 		this.loadCommands()
 
@@ -45,9 +46,14 @@ class CLI
 		})
 	}
 
+	showWelcomeMessage()
+	{
+		console.log(`js-OS v0.0.1`)
+	}
+
 	loadCommands()
 	{
-		const rawdata = fs.readFileSync('./klasses/commands.json')
+		const rawdata = fs.readFileSync('./classes/commands.json')
 		this.commands = JSON.parse(rawdata)
 	}
 

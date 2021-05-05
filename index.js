@@ -1,4 +1,4 @@
-const CLI = require('./klasses/cli.js')
+const CLI = require('./classes/cli.js')
 
 const cli = new CLI()
 cli.init()
