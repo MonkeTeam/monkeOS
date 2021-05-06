@@ -18,8 +18,8 @@ class CLI
 		})
 
 		this.showWelcomeMessage()
-		this.run()
 		this.loadCommands()
+		this.run()
 
 		this.rl.on('close', () => {
 			console.log("\nExiting...")
