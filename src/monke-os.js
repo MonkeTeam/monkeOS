@@ -17,4 +17,4 @@ class MonkeOS
 	}
 }
 
-module.exports = Monke
+module.exports = MonkeOS
