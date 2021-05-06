@@ -2,9 +2,10 @@ class Hi
 {
 	constructor() {}
 
-	run()
+	run(next)
 	{
 		console.log("Hello there")
+		next()
 	}
 }
 
