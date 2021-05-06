@@ -1,7 +1,7 @@
 const readline = require('readline')
 const fs = require('fs')
 const BinDirSys = require('./filesystem/bin_dir_sys.js')
-const JSOS = require('./js-os.js')
+const MonkeOS = require('./monke-os.js')
 
 class CLI
 {
@@ -68,7 +68,7 @@ class CLI
 		let commands = JSON.parse(rawdata)
 		let binFiles = {}
 
-		if(JSOS.isInstalled())
+		if(MonkeOS.isInstalled())
 		{
 			const binDirSys = new BinDirSys()
 

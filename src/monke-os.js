@@ -1,7 +1,7 @@
 const FileSystem = require('./utils/filesystem.js')
 const Config = require('./config.js')
 
-class JSOS
+class MonkeOS
 {
 	static isInstalled()
 	{
@@ -17,4 +17,4 @@ class JSOS
 	}
 }
 
-module.exports = JSOS
+module.exports = Monke
