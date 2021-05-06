@@ -16,7 +16,7 @@ class BinDirSys
 		let data = {};
 		this.root_path = this.config.get('installation_path')
 
-		data.whodis = "dis is voss";
+		data.whodis = "dis is monke";
 
 		FileSystem.writeFileHex(this.bin_path, JSON.stringify(data))
 
