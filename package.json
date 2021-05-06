@@ -12,6 +12,18 @@
   "author": "Jakaria Blaine",
   "license": "MIT",
   "dependencies": {
-    "nodemon": "^2.0.7"
+    "@octokit/auth-basic": "^1.4.8",
+    "@octokit/rest": "^18.5.3",
+    "chalk": "^4.1.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^6.0.0",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.0.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.5",
+    "nodemon": "^2.0.7",
+    "simple-git": "^2.38.0",
+    "touch": "^3.1.0"
   }
 }
