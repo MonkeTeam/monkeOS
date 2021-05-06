@@ -1,5 +1,5 @@
-# js-os
-just some stupid stuffs
+# MonkeOS
+just some stupid monke stuffs
 
 # How to run
 To run the os, run
