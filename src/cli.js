@@ -78,7 +78,7 @@ class CLI
 
 	showWelcomeMessage()
 	{
-		console.log(`js-OS v0.0.1`)
+		console.log(`monke-OS v0.0.1`)
 	}
 
 	loadCommands()

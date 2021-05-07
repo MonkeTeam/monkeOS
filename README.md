@@ -2,7 +2,12 @@
 just some stupid monke stuffs
 
 # How to run
-To run the os, run
+At first. run this command to install the required npm libraries
+```
+$ npm install
+```
+
+To run the os, do
 ```
 $ node index.js
 ```
