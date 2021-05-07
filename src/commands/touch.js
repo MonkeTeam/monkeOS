@@ -1,9 +1,7 @@
 const fs = require('fs');
 const Config = require('../config.js')
 
-
-
-class touch
+class Touch
 {
 	constructor() {
 		this.config;
@@ -17,4 +15,4 @@ class touch
 	}
 }
 
-module.exports = touch
+module.exports = Touch

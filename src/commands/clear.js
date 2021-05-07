@@ -1,6 +1,6 @@
 const clearCli = require('clear');
 
-class clear
+class Clear
 {
 
 	run(next)
@@ -10,4 +10,4 @@ class clear
 	}
 }
 
-module.exports = clear
+module.exports = Clear

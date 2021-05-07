@@ -1,6 +1,6 @@
-
 const fetch = require('node-fetch');
-class inspire
+
+class Inspire
 {
 	constructor() {
        
@@ -27,4 +27,4 @@ class inspire
 	}
 }
 
-module.exports = inspire
+module.exports = Inspire
