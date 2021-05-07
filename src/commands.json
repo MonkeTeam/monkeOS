@@ -1,5 +1,8 @@
 {
 	"hi": null,
 	"os-setup": null,
-	"env-setup": null
+	"env-setup": null,
+	"clear": null,
+	"touch": null,
+	"inspire": null
 }
