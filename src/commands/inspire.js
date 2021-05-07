@@ -8,12 +8,6 @@ class inspire
 
 	run(next)
 	{ 
-        // fetch("")
-        // .then(res => res.json())
-        // .then(data =>{
-        //     console.log(data.content);
-        // })
-
         fetch("https://api.quotable.io/random")
         .then((res) => {
           if (!res.ok) {
