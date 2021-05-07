@@ -3,22 +3,22 @@ const FileSystem = require('../utils/filesystem.js')
 
 class RootDirSys
 {
-	createRootDirectories(os_path)
+	createRootDirectories()
 	{
-		this.createBinDir(os_path)
+		this.createBinDir()
 	}
 
-	createBinDir(os_path)
+	createBinDir()
 	{
-		const bin_dir_path = os_path + "/bin";
+		const bin_dir_path = "/bin";
 
-		if(fs.existsSync(bin_dir_path))
+		if(FileSystem.exists(bin_dir_path))
 		{
 			console.log("Bin directory already exists! ... Skipping")
 			return;
 		}
 
-		FileSystem.createFile(bin_dir_path, 0o755)
+		FileSystem.createFolder(bin_dir_path)
 		console.log("Bin directory created!")
 	}
 }

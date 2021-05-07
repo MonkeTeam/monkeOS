@@ -13,7 +13,7 @@ class MonkeOS
 			return false
 		}
 
-		return FileSystem.exists(installation_path)
+		return FileSystem.exists(installation_path, true)
 	}
 }
 

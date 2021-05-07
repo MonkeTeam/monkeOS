@@ -1,4 +1,5 @@
 const fs = require('fs')
+const Path = require('path')
 const os = require('os')
 const CLI = require('../cli.js')
 const RootDirSys = require('../filesystem/root_dir_sys.js')
@@ -63,6 +64,11 @@ class OSSetup
 		// replaces ~ with home directory of the user's host system
 		path = path.replace("~", homedir)
 
+		if(path.charAt(0) != '/')
+		{
+			path = Path.resolve('.') + '/' + path
+		}
+
 		// if the directory doesn't exists, create the directory
 		if(!fs.existsSync(path))
 		{
@@ -72,21 +78,21 @@ class OSSetup
 			})
 		}
 
-		// create OS's required directories
-		this.createOSDirectories(path)
-
 		// update the `installation_path` data in config.json
 		this.config.set('installation_path', path)
+
+		// create OS's required directories
+		this.createOSDirectories()
 
 		// create files under bin directory
 		this.createBinFiles(path)
 	}
 
-	createOSDirectories(path)
+	createOSDirectories()
 	{
 		const root_dir_sys = new RootDirSys()
 
-		root_dir_sys.createRootDirectories(path)
+		root_dir_sys.createRootDirectories()
 	}
 
 	createBinFiles(path)

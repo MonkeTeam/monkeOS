@@ -2,6 +2,7 @@ const readline = require('readline')
 const fs = require('fs')
 const BinDirSys = require('./filesystem/bin_dir_sys.js')
 const MonkeOS = require('./monke-os.js')
+const File = require('./filesystem/file.js')
 
 class CLI
 {
@@ -59,7 +60,7 @@ class CLI
 				{
 					// if it's not system's default command, then it will 
 					// be a bin file from filesystem
-					console.log(_this.commands[command])
+					_this.runBinFile(_this.commands[command])
 					// this is to run the run() function again so user can
 					// provide another command
 					_this.run()
@@ -131,6 +132,18 @@ class CLI
 			// pass the result to the callback
 			next(result)
 		})
+	}
+
+	runBinFile(path)
+	{
+		let file = new File(path)
+
+		let file_content = file.read()
+
+		Function(`
+			"use strict";
+			`+ file_content +`
+		`)()
 	}
 }
 
