@@ -11,15 +11,17 @@ class BinDirSys
 
 	createFiles()
 	{
-		let data = {};
+		let bin_files = FileSystem.getFolderContents('./src/bin_files', true)
 
-		data.whodis = "dis is monke";
+		for(let bin_file of bin_files)
+		{
+			let content = fs.readFileSync('./src/bin_files/' + bin_file, {
+				encoding: 'utf-8',
+				flag: 'r'
+			})
 
-		// FileSystem.writeFile(this.bin_path , JSON.stringify(data))
-
-		let file = new File(this.bin_path + '/whodis', "console.log('working bruh')", 0)
-
-		file.save()
+			this._createBinFile(bin_file, content)
+		}
 
 		console.log("Binary files created...")
 	}
@@ -36,6 +38,15 @@ class BinDirSys
 		}
 
 		return data
+	}
+
+	_createBinFile(name, content)
+	{
+		name = name.replace('.js', '')
+		
+		let file = new File(this.bin_path + '/' + name, content, 0)
+
+		file.save()
 	}
 }
 

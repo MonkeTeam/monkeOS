@@ -71,9 +71,12 @@ class FileSystem
 		return installation_path + path
 	}
 
-	static getFolderContents(path)
+	static getFolderContents(path, without_full_path = false)
 	{
-		path = this.get_full_path(path)
+		if(!without_full_path)
+		{
+			path = this.get_full_path(path)
+		}
 
 		return fs.readdirSync(path)
 	}

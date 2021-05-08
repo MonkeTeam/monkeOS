@@ -22,10 +22,10 @@ class OSSetup
 		console.log("Setting up OS...")
 
 		// process choosing path to install the OS
-		this.choosePath(next)
+		this.choosePath()
 	}
 
-	choosePath(next_cmd)
+	choosePath()
 	{
 		const path = this.config.get('installation_path');
 
@@ -38,8 +38,7 @@ class OSSetup
 			// create the given directory
 			this.createDir(path)
 
-			// go to next proccess
-			next_cmd()	
+			console.log("OS successfully installed! Restart the OS")			
 		}
 		else
 		{
@@ -50,8 +49,6 @@ class OSSetup
 	
 				// create the given directory
 				_this.createDir(result)
-
-				console.log("OS successfully installed! Restart the OS")
 			})
 		}
 	}
