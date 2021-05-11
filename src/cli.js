@@ -143,7 +143,7 @@ class CLI
 
 		let config = new Config()
 
-		const ROOT = config.get('installation_path')
+		const ROOT_PATH = config.get('installation_path')
 
 		const MONKE_OS = MonkeOS
 
