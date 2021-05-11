@@ -57,6 +57,16 @@ class File
 
 		FileSystem.createFile(this.path, file_data.content)
 	}
+
+	delete()
+	{
+		if(this.path.charAt(0) != '/')
+		{
+			throw new InvalidException("Invalid path given")
+		}
+
+		FileSystem.delete(this.path)
+	}
 }
 
 module.exports = File

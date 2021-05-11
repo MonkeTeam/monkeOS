@@ -2,6 +2,7 @@ const Config = require('../config.js')
 const fs = require('fs')
 const Encoder = require('./encoder.js')
 
+// this class is an utility class for all filesystem actions
 class FileSystem
 {
 	static createFolder(path)
@@ -62,6 +63,13 @@ class FileSystem
 		}
 
 		return fs.existsSync(path)
+	}
+
+	static delete(path)
+	{
+		path = this.get_full_path(path)
+
+		fs.unlinkSync(path)
 	}
 
 	static get_full_path(path)

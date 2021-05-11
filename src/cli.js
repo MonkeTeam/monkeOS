@@ -3,6 +3,7 @@ const fs = require('fs')
 const BinDirSys = require('./filesystem/bin_dir_sys.js')
 const MonkeOS = require('./monke-os.js')
 const File = require('./filesystem/file.js')
+const Config = require('./config.js')
 
 class CLI
 {
@@ -140,10 +141,16 @@ class CLI
 
 		let file_content = file.read()
 
-		Function(`
+		let config = new Config()
+
+		const ROOT = config.get('installation_path')
+
+		const MONKE_OS = MonkeOS
+
+		eval(`
 			"use strict";
 			`+ file_content +`
-		`)()
+		`)
 	}
 }
 

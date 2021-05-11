@@ -4,7 +4,7 @@ class Error
 	{
 		this.message = message
 		this.name = "Error"
-		console.trace()
+		// console.trace()
 	}
 }
 

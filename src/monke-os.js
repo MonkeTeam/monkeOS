@@ -1,5 +1,6 @@
 const FileSystem = require('./utils/filesystem.js')
 const Config = require('./config.js')
+const InvalidException = require('./exceptions/invalid_exception.js')
 
 class MonkeOS
 {
@@ -14,6 +15,26 @@ class MonkeOS
 		}
 
 		return FileSystem.exists(installation_path, true)
+	}
+
+	static runProcess(process_name)
+	{
+		if(!MonkeOS.isInstalled()) throw new InvalidException("MonkeOS is not installed yet")
+
+		let process = require('./processes/' + process_name + '.js')
+
+		process = new process()
+		process.run()
+	}
+
+	static abortProcess(process_name)
+	{
+		if(!MonkeOS.isInstalled()) throw new InvalidException("MonkeOS is not installed yet")
+		
+		let process = require('./processes/' + process_name + '.js')
+
+		process = new process()
+		process.abort()
 	}
 }
 

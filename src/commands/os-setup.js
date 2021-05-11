@@ -4,6 +4,7 @@ const os = require('os')
 const CLI = require('../cli.js')
 const RootDirSys = require('../filesystem/root_dir_sys.js')
 const BinDirSys = require('../filesystem/bin_dir_sys.js')
+const ProcDirSys = require('../filesystem/proc_dir_sys.js')
 const Config = require('../config.js')
 
 // this class is for setting up the OS
@@ -82,7 +83,10 @@ class OSSetup
 		this.createOSDirectories()
 
 		// create files under bin directory
-		this.createBinFiles(path)
+		this.createBinFiles()
+
+		// create proc folder for all system processes
+		this.createProcFolder()
 	}
 
 	createOSDirectories()
@@ -92,11 +96,18 @@ class OSSetup
 		root_dir_sys.createRootDirectories()
 	}
 
-	createBinFiles(path)
+	createBinFiles()
 	{
 		const bin_dir_sys = new BinDirSys()
 
 		bin_dir_sys.createFiles()
+	}
+
+	createProcFolder()
+	{
+		const proc_dir_sys = new ProcDirSys()
+
+		proc_dir_sys.createFolder()
 	}
 }
 

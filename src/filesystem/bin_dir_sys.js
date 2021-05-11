@@ -11,11 +11,11 @@ class BinDirSys
 
 	createFiles()
 	{
-		let bin_files = FileSystem.getFolderContents('./src/bin_files', true)
+		let bin_files = FileSystem.getFolderContents('./src/system_core/bin_files', true)
 
 		for(let bin_file of bin_files)
 		{
-			let content = fs.readFileSync('./src/bin_files/' + bin_file, {
+			let content = fs.readFileSync('./src/system_core/bin_files/' + bin_file, {
 				encoding: 'utf-8',
 				flag: 'r'
 			})
