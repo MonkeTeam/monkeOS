@@ -12,7 +12,7 @@ catch(error)
 	}
 }
 
-let content = fs.readFileSync(ROOT_PATH + '/proc/working_directory.json')
+let content = fs.readFileSync(ROOT_PATH + '/proc/working_directory')
 content = content.toString()
 
 content = JSON.parse(content)

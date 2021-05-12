@@ -15,7 +15,7 @@ class WorkingDirectoryProcess extends Process
 		this.config = new Config()
 		this.root_path = this.config.get('installation_path')
 
-		this.file_name = '/working_directory.json'
+		this.file_name = '/working_directory'
 	}
 
 	run()
