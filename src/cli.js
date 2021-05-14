@@ -43,6 +43,14 @@ class CLI
 		// this opens up an input where user can give command
 		this.rl.question('', command => {
 			// if the given command exists in command list or not
+			let command_items = command.split(' ')
+			command = command_items[0]
+			let arg = '';
+			if(command_items.length > 1)
+			{
+				arg = command_items.slice(1)
+			}
+
 			if(command in _this.commands)
 			{
 				// if the command's value is null, it is system's internal command
@@ -50,7 +58,7 @@ class CLI
 				{
 					// load the command file and run it
 					let cmd = require('./commands/' + command + '.js')
-					cmd = new cmd()
+					cmd = new cmd(arg)
 					cmd.run(() => {
 						// this is to run the run() function again so user can
 						// provide another command
@@ -61,7 +69,7 @@ class CLI
 				{
 					// if it's not system's default command, then it will 
 					// be a bin file from filesystem
-					_this.runBinFile(_this.commands[command])
+					_this.runBinFile(_this.commands[command], arg)
 					// this is to run the run() function again so user can
 					// provide another command
 					_this.run()
@@ -135,7 +143,7 @@ class CLI
 		})
 	}
 
-	runBinFile(path)
+	runBinFile(path, arg)
 	{
 		let file = new File(path)
 
@@ -147,6 +155,11 @@ class CLI
 
 		const MONKE_OS = MonkeOS
 
+		this.runBinFileContent(file_content, arg, ROOT_PATH, MONKE_OS)
+	}
+
+	runBinFileContent(file_content, arg, ROOT_PATH, MONKE_OS)
+	{
 		eval(`
 			"use strict";
 			`+ file_content +`
