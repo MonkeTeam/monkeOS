@@ -3,7 +3,7 @@ const File = require('../filesystem/file.js')
 const FileSystem = require('../utils/filesystem.js')
 const Process = require('./process.js')
 const ProcDirSys = require('../filesystem/proc_dir_sys.js')
-const InvalidException = require('../exceptions/invalid_exception.js')
+const AlreadyExistsException = require('../exceptions/already_exists_exception.js')
 
 class WorkingDirectoryProcess extends Process
 {
@@ -22,7 +22,7 @@ class WorkingDirectoryProcess extends Process
 	{
 		if(FileSystem.exists(this.path + this.file_name))
 		{
-			throw new InvalidException("The process already running")
+			throw new AlreadyExistsException("The process already running")
 		}
 
 		super.run()

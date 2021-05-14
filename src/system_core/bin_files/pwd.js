@@ -6,7 +6,7 @@ try
 }
 catch(error)
 {
-	if(error.name != "InvalidException")
+	if(error.name != "AlreadyExistsException")
 	{
 		console.log(error.name, error.message)
 	}
